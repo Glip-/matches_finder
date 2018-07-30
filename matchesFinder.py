@@ -2,17 +2,12 @@ import re, argparse, sys
 import time
 
 ### to do:
-### 1) -c or -u or -m
-### 2) standard input if no files are specified, or the file name '-' is given
+### 1) standard input if no files are specified, or the file name '-' is given
 
 color = '\033[{0}m'
 colourStr = color.format(32)
 colorRedStr = color.format(31)
 resetStr = color.format(0)
-
-
-#filenames = ['text3', 'text', 'text2']
-#match = re.compile("on\w+")
 
 class outputPrinter:
     def __init__(self, match):
@@ -55,7 +50,6 @@ class outputPrinter:
             print(underscoreText)
 
     def machinePrint(self, filename, output):
-        ### format: file_name:no_line:start_pos:matched_text
         for t in output:
             lineNumber = t.split()[0]
             outputText = ''
