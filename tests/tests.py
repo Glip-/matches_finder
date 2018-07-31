@@ -1,7 +1,10 @@
-import matchesFinder
+import sys 
+sys.path.append('..')
+
 import unittest
 import time
 
+import matchesFinder
 
 class TestMatchesFinder(unittest.TestCase):
     def test_without_required_args(self):
