@@ -1,10 +1,9 @@
-import sys 
+import unittest
+import sys
 sys.path.append('..')
 
-import unittest
-import time
-
 import matchesFinder
+
 
 class TestMatchesFinder(unittest.TestCase):
     def test_without_required_args(self):
@@ -39,7 +38,7 @@ class TestMatchesFinder(unittest.TestCase):
 
     def test_found_matches_normal_output__one_file(self):
         """
-        Can't find any matches in the file
+        Found matches and print text
         """
         self.parser = matchesFinder.parse_arguments()
         self.args = self.parser.parse_args(['-r', '[S,s]witch', '-f', 'file1'])

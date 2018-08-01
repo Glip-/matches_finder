@@ -1,8 +1,10 @@
-import re, argparse, sys
-import time
+import re
+import argparse
 
-### to do:
-### 1) standard input if no files are specified, or the file name '-' is given
+'''
+to do:
+1) standard input if no files are specified, or the file name '-' is given
+'''
 
 color = '\033[{0}m'
 colorGreenStr = color.format(32)
@@ -46,7 +48,7 @@ class outputPrinter:
                 self.underscoreText += " " * (start - lastMatch)
                 self.underscoreText += "^" * (end - start)
                 lastMatch = end
-                self.underscoreText += " " * (lastMatch)
+                self.underscoreText += " " * lastMatch
             print(t)
             print(self.underscoreText)
 
@@ -55,6 +57,7 @@ class outputPrinter:
             lineNumber = t.split()[0]
             self.outputText = ''
             foundMatches = 0
+
             for m in self.match.finditer(t):
                 if foundMatches == 1:
                     self.outputText += "\n"
@@ -78,7 +81,6 @@ class matchesFinder:
         elif args.machine:
             self.printStyle = 3
 
-
         for filename in self.listOfFiles:
             self.output = self.find(filename)
 
@@ -95,7 +97,6 @@ class matchesFinder:
                 print("\n\nCan not open file " + colorRedStr + str(filename) + resetStr)
             else:
                 print("\n\nNo Matches in file " + str(filename))
-
 
     def find(self, filename):
         output = []
